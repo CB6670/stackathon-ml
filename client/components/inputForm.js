@@ -7,7 +7,7 @@ export default class InputForm extends React.Component {
         super(props);
         this.state = {
             image_object: null,
-            image_object_details: null,
+            image_object_details: {},
             active_type: null
         }
         this.updateImageObject = this.updateImageObject.bind(this);
@@ -21,13 +21,11 @@ export default class InputForm extends React.Component {
         const reader = new FileReader();
         reader.readAsDataURL(file);
         reader.onload = () => {
-            this.setState({image_object: reader.result, image_object_details: {}, active_type: null
-            });
+            this.setState({image_object: reader.result, image_object_details: {}, active_type: null});
         };
  }
 
  processImageObject(type) {
-
     this.setState({ active_type: type}, () => {
 
         if (!this.state.image_object_details[this.state.active_type]) {

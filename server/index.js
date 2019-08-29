@@ -13,13 +13,14 @@ app.use('/', express.static(path.join(__dirname, '..', 'public')));
 app.post('/api/detect_image_objects', async (req, res) => {
     try {
         const data = req.body.data;
-    const type = req.body.type;
-    const objectDetect = new ObjectDetectors(data, type);
-    const results = await objectDetect.process();
-    console.log(results)
-    res.json(results);
+        const type = req.body.type;
+        const objectDetect = new ObjectDetectors(data, type);
+        console.log(objectDetect)
+        const results = await objectDetect.process();
+        console.log(results)
+        res.json(results);
     } catch (err){
-    console.error(err);
+        console.error(err);
     }
   });
 
