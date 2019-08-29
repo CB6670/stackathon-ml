@@ -1,0 +1,41 @@
+{
+  "name": "auto-recogniser",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "webpack": "webpack",
+    "webpack-watch": "webpack -w --mode=development",
+    "postinstall": "npm run webpack",
+    "seed": "node script/seed.js",
+    "start": "node server",
+    "start-watch": "nodemon server  --ignore public --ignore client",
+    "start:dev": "NODE_ENV='development' npm run webpack-watch & NODE_ENV='development' npm run start-watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.5.5",
+    "@babel/polyfill": "^7.4.4",
+    "@babel/preset-env": "^7.5.5",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.6",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "react-router-dom": "^5.0.1",
+    "webpack": "^4.39.3",
+    "webpack-cli": "^3.3.7"
+  },
+  "dependencies": {
+    "@tensorflow-models/mobilenet": "^2.0.3",
+    "@tensorflow/tfjs-converter": "^1.2.8",
+    "@tensorflow/tfjs-core": "^1.2.8",
+    "@tensorflow/tfjs-node": "^1.2.8",
+    "axios": "^0.19.0",
+    "base64-to-uint8array": "^1.0.0",
+    "express": "^4.17.1",
+    "ml5": "^0.3.1",
+    "rollup": "^1.20.3"
+  }
+}
